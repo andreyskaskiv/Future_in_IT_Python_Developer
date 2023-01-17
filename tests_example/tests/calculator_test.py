@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 
-from tests_example.unit_tests.calc_1 import calculator
+from tests_example.calculator.calc_1 import calculator
 
 # red-green refactoring
 
