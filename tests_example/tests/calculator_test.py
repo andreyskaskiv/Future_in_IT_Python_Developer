@@ -2,6 +2,7 @@ from unittest import TestCase, main
 
 from tests_example.calculator.calc_1 import calculator
 
+
 # red-green refactoring
 
 class CalculatorTest(TestCase):
