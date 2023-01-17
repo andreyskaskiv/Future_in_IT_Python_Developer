@@ -1,0 +1,3 @@
+text = 'Пробник'
+
+print(text)
