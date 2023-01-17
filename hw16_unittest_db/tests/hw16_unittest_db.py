@@ -1,3 +1,0 @@
-text = 'Пробник'
-
-print(text)
