@@ -42,7 +42,6 @@ class DataBase:
 
     def __enter__(self):
         self.connect()
-        # print(f'self = {self}')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
