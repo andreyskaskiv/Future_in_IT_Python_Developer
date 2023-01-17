@@ -1,6 +1,5 @@
 from unittest import TestCase, main
 
-from hw15_Tk_unittest_calc.hw15_Calc_Tk_unittest import calc
 from tests_example.unit_tests.calc_1 import calculator
 
 # red-green refactoring
