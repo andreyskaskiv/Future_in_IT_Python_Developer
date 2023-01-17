@@ -28,7 +28,7 @@ class TestDatabase(unittest.TestCase):
     def tearDown(self) -> None:
         del self.db
 
-    def test_1_connect_to_database(self):
+    def test_1_connect_to_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
             self.db.connect()
             self.assertEqual(fake_out.getvalue(), f'Connect to DB: {self.db_name}\n')
