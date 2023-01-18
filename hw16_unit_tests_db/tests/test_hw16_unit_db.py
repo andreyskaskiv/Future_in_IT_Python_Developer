@@ -3,6 +3,7 @@ import unittest
 from collections import namedtuple
 from unittest.mock import patch
 
+
 from hw16_unit_tests_db.hw16_database.hw16_db import DataBase, DataBaseDTO, DatabaseVerify, DataBaseException
 
 
@@ -125,7 +126,10 @@ class TestDatabase(unittest.TestCase):
 
     def test_17_incorrect_user(self):
         wrong_value = 'root'
-        pass
+        with self.assertWarns(Warning) as context:
+            self.db.user = wrong_value
+        the_warning = context.warning
+        self.assertEqual(str(the_warning), 'Use root user is dangerous')
 
     def test_18_incorrect_password(self):
         database_exception = 'Password must be at least 8 chars include Upper, Lower, Digit, Punctuation'
@@ -157,7 +161,7 @@ class TestDatabase(unittest.TestCase):
         self.assertEqual(str(context.exception), f"'{wrong_host}' does not appear to be an IPv4 or IPv6 address")
 
     def test_20_incorrect_port(self):
-        Case = namedtuple('Case', 'wrong_port database_exception')
+        Case = namedtuple('Case', 'wrong_port actual')
 
         CASES = (
             Case('5001ww', f'Port must contains numbers not 5001ww'),
@@ -170,7 +174,7 @@ class TestDatabase(unittest.TestCase):
         for case in CASES:
             with self.assertRaises(DataBaseException) as context:
                 self.db.port = case.wrong_port
-            self.assertEqual(str(context.exception), case.database_exception)
+            self.assertEqual(str(context.exception), case.actual)
 
 
 if __name__ == '__main__':
