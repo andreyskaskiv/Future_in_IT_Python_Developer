@@ -147,6 +147,7 @@ class TestDatabase(unittest.TestCase):
 
             Case('$%_`{|}~', database_exception),  # symbol_error
             Case('$%sss&\_`{|}~', database_exception),  # symbol_error
+            Case('qwertyR158jgiop876', database_exception),  # symbol_error
         )
 
         for case in CASES:
