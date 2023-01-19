@@ -1,8 +1,8 @@
 import io
+import sys
 import unittest
 from collections import namedtuple
 from unittest.mock import patch
-
 
 from hw16_unit_tests_db.hw16_database.hw16_db import DataBase, DataBaseDTO, DatabaseVerify, DataBaseException
 
