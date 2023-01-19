@@ -175,7 +175,7 @@ class TestDatabase(unittest.TestCase):
         for case in CASES:
             with self.assertRaises(DataBaseException) as context:
                 self.db.port = case.wrong_port
-            self.assertEqual(str(context.exception), case.actual)
+                self.assertEqual(str(context.exception), case.actual)
 
 
 if __name__ == '__main__':
