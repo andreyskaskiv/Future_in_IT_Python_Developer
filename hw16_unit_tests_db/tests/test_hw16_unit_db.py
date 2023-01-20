@@ -118,7 +118,7 @@ class TestDatabase(unittest.TestCase):
     def test_14_incorrect_wrong_types(self):
         data = DataBaseDTO(None, None, None, None, None)
         with self.assertRaises(TypeError) as context:
-            self.db_postgres = DataBase(data)
+            DataBase(data)
         self.assertEqual(str(context.exception), f'None must be a string')
 
     def test_15_incorrect_db_name_empty_field(self):
