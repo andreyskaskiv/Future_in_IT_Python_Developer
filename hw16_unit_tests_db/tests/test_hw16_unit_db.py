@@ -17,7 +17,7 @@ class TestDatabase(unittest.TestCase):
         self.table = 'customers'
         self.data = 'some data'
         self.databases = ('postgres', 'mysql', 'sqlite')
-        self.database_verify = DatabaseVerify
+
         self.database_dto = DataBaseDTO(
             self.db_name,
             self.user,
