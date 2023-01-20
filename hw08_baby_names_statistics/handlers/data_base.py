@@ -1,13 +1,17 @@
 import os
 import re
 from pathlib import Path
-from typing import List, Dict
+from typing import List, NamedTuple, Dict
 
-from hw8_baby_names_stat_and_tree import baby_names
-from hw8_baby_names_stat_and_tree.DTO.DTO import (Filenames,
-                                                  Name)
-from hw8_baby_names_stat_and_tree.handlers.file_handler import (filter_data_from_file,
-                                                                read_data_from_file)
+from hw08_baby_names_statistics import baby_names
+from hw08_baby_names_statistics.handlers.file_handler import read_data_from_file
+from hw08_baby_names_statistics.handlers.file_handler import filter_data_from_file
+from hw08_baby_names_statistics.handlers.file_handler import Name
+
+
+class Filenames(NamedTuple):
+    year: int
+    sex: str
 
 
 def split_file(filtered_filenames: List[str]) -> List[Filenames]:
@@ -71,3 +75,4 @@ def data_base(filtered_filenames: List[str]) -> Dict[int, Dict]:
     data_base_table = update_database(template_database, filtered_filenames)
 
     return data_base_table
+

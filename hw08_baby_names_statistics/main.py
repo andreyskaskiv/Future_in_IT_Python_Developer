@@ -1,17 +1,17 @@
 from typing import Callable
 
-from hw8_baby_names_statistics.handlers.error_handler import check_folder_exist
-from hw8_baby_names_statistics.handlers.error_handler import check_files
-from hw8_baby_names_statistics.handlers.error_handler import check_input
+from hw08_baby_names_statistics.handlers.error_handler import check_folder_exist
+from hw08_baby_names_statistics.handlers.error_handler import check_files
+from hw08_baby_names_statistics.handlers.error_handler import check_input
 
-from hw8_baby_names_statistics.handlers.file_handler import get_filenames_from_folder
-from hw8_baby_names_statistics.handlers.file_handler import filter_filenames
-from hw8_baby_names_statistics.handlers.file_handler import write_json
-from hw8_baby_names_statistics.handlers.file_handler import write_data_to_file
+from hw08_baby_names_statistics.handlers.file_handler import get_filenames_from_folder
+from hw08_baby_names_statistics.handlers.file_handler import filter_filenames
+from hw08_baby_names_statistics.handlers.file_handler import write_json
+from hw08_baby_names_statistics.handlers.file_handler import write_data_to_file
 
-from hw8_baby_names_statistics.handlers.data_base import data_base
-from hw8_baby_names_statistics.tools.count_names import count_names
-from hw8_baby_names_statistics.tools.show_table import make_pretty_table
+from hw08_baby_names_statistics.handlers.data_base import data_base
+from hw08_baby_names_statistics.tools.count_names import count_names
+from hw08_baby_names_statistics.tools.show_table import make_pretty_table
 
 
 PATH_TO_EXAMPLE = 'baby_names'

@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 from typing import List, NamedTuple
 
-from hw8_baby_names_stat_and_tree import baby_names
-from hw8_baby_names_stat_and_tree.DTO.DTO import Identification
-from hw8_baby_names_stat_and_tree.client.id import CLIENTS
+from hw08_baby_names_stat_and_tree import baby_names
+from hw08_baby_names_stat_and_tree.DTO.DTO import Identification
+from hw08_baby_names_stat_and_tree.client.id import CLIENTS
 
 
 def check_identification(client: Identification[NamedTuple]):

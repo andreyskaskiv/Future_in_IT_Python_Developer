@@ -1,9 +1,9 @@
 """A program to remove comment lines from a file in Python."""
 
-from hw9_remove_comments_in_code.handlers.error_handlers import check_file
-from hw9_remove_comments_in_code.handlers.normalize_handler import normalize_data_from_file
-from hw9_remove_comments_in_code.handlers.file_handlers import (read_data_from_file,
-                                                                write_data_to_file)
+from hw09_remove_comments_in_code.handlers.error_handlers import check_file
+from hw09_remove_comments_in_code.handlers.normalize_handler import normalize_data_from_file
+from hw09_remove_comments_in_code.handlers.file_handlers import (read_data_from_file,
+                                                                 write_data_to_file)
 
 
 def main(filename: str, write_file: str = 'data/output_normalize_data.py'):

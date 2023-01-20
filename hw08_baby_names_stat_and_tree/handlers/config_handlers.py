@@ -1,6 +1,6 @@
 import configparser
-from hw8_baby_names_stat_and_tree.DTO.DTO import (Gender,
-                                                  Identification)
+from hw08_baby_names_stat_and_tree.DTO.DTO import (Gender,
+                                                   Identification)
 
 
 class Config:

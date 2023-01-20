@@ -1,7 +1,7 @@
 import re
 
-from hw7_element_framework_txt.handlers.file_handler import Element
-from hw7_element_framework_txt.tools.show_table import make_pretty_table
+from hw07_element_framework_txt.handlers.file_handler import Element
+from hw07_element_framework_txt.tools.show_table import make_pretty_table
 
 
 def check_user_input(user_input: str, elements_table: list[Element]):

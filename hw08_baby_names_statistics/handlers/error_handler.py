@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from typing import List
 
-from hw8_baby_names_statistics import baby_names
+from hw08_baby_names_statistics import baby_names
 
 
 def check_folder_exist(folder: str):

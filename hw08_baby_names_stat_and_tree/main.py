@@ -1,16 +1,16 @@
-from hw8_baby_names_stat_and_tree.handlers.data_base import data_base
-from hw8_baby_names_stat_and_tree.handlers.config_handlers import Config
-from hw8_baby_names_stat_and_tree.tools.count_names import count_names
-from hw8_baby_names_stat_and_tree.tools.show_table import make_pretty_table
-from hw8_baby_names_stat_and_tree.DTO.DTO import Args
-from hw8_baby_names_stat_and_tree.tools.generate_tree import generate_tree
-from hw8_baby_names_stat_and_tree.handlers.error_handler import (check_folder_exist,
-                                                                 check_identification)
-from hw8_baby_names_stat_and_tree.handlers.file_handler import (filter_filenames,
-                                                                get_filenames_from_folder,
-                                                                write_data_to_file,
-                                                                write_json,
-                                                                write_tree_to_file)
+from hw08_baby_names_stat_and_tree.handlers.data_base import data_base
+from hw08_baby_names_stat_and_tree.handlers.config_handlers import Config
+from hw08_baby_names_stat_and_tree.tools.count_names import count_names
+from hw08_baby_names_stat_and_tree.tools.show_table import make_pretty_table
+from hw08_baby_names_stat_and_tree.DTO.DTO import Args
+from hw08_baby_names_stat_and_tree.tools.generate_tree import generate_tree
+from hw08_baby_names_stat_and_tree.handlers.error_handler import (check_folder_exist,
+                                                                  check_identification)
+from hw08_baby_names_stat_and_tree.handlers.file_handler import (filter_filenames,
+                                                                 get_filenames_from_folder,
+                                                                 write_data_to_file,
+                                                                 write_json,
+                                                                 write_tree_to_file)
 
 conf = Config()
 PATH_TO_FOLDER = conf.get_path_to_folder()

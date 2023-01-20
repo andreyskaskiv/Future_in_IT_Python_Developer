@@ -4,9 +4,9 @@ import os
 import re
 from typing import List,  Dict, Any
 
-from hw8_baby_names_stat_and_tree.DTO.DTO import Name
-from hw8_baby_names_stat_and_tree.handlers.error_handler import (check_file_exist,
-                                                                 check_file_type_txt)
+from hw08_baby_names_stat_and_tree.DTO.DTO import Name
+from hw08_baby_names_stat_and_tree.handlers.error_handler import (check_file_exist,
+                                                                  check_file_type_txt)
 
 
 def get_filenames_from_folder(folder: str):

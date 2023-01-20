@@ -3,15 +3,15 @@ from pathlib import Path
 from typing import Callable
 
 
-from hw7_element_framework_txt.handlers.error_handler import check_file
-from hw7_element_framework_txt.handlers.file_handler import read_data_from_file
-from hw7_element_framework_txt.handlers.file_handler import filter_data_from_file
-from hw7_element_framework_txt.handlers.file_handler import write_data_to_file
+from hw07_element_framework_txt.handlers.error_handler import check_file
+from hw07_element_framework_txt.handlers.file_handler import read_data_from_file
+from hw07_element_framework_txt.handlers.file_handler import filter_data_from_file
+from hw07_element_framework_txt.handlers.file_handler import write_data_to_file
 
-from hw7_element_framework_txt.tools.show_table import make_pretty_table
-from hw7_element_framework_txt.tools.check_element import check_element
+from hw07_element_framework_txt.tools.show_table import make_pretty_table
+from hw07_element_framework_txt.tools.check_element import check_element
 
-from hw7_element_framework_txt import examples
+from hw07_element_framework_txt import examples
 # print(examples.__file__)
 filename = 'elements.txt'  # or pass a function to search for files
 

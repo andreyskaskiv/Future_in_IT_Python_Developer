@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-from hw7_element_framework_txt.handlers.file_handler import Element
+from hw07_element_framework_txt.handlers.file_handler import Element
 
 
 def make_pretty_table(elements_table: list[Element]):
