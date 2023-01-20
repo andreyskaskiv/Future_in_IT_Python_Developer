@@ -26,108 +26,117 @@ class TestDatabase(unittest.TestCase):
             self.port
         )
 
-        self.db = DataBase(self.database_dto)
+        self.db_postgres = DataBase(self.database_dto)
 
     """Positive tests"""
 
     def tearDown(self) -> None:
-        del self.db
+        del self.db_postgres
+
+    def test_00_singleton_DataBase_pattern(self):
+        data_mysql = DataBaseDTO('mysql', 'user', 'passwordW!9', '127.0.0.1', '3000')
+        database_mysql = DataBase(data_mysql)
+
+        print(id(database_mysql), id(self.db_postgres))
+        print(self.db_postgres.db_name, data_mysql.db_name)
+
+        self.assertEqual(id(database_mysql), id(self.db_postgres))
 
     def test_01_delete_DataBase_instance(self):
-        self.db.__del__()
-        self.assertEqual(DataBase.instance(), None)
+        self.db_postgres.__del__()
+        self.assertEqual(self.db_postgres.instance(), None)
 
     def test_02_enter_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
-            self.db.__enter__()
+            self.db_postgres.__enter__()
             self.assertEqual(fake_out.getvalue(), f'Connect to DB: {self.db_name}\n')
 
     def test_03_exit_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
             exc_type, exc_val, exc_tb = None, None, None
-            self.db.__exit__(exc_type, exc_val, exc_tb)
+            self.db_postgres.__exit__(exc_type, exc_val, exc_tb)
             self.assertEqual(fake_out.getvalue(), f'Close connect to DB: {self.db_name}\n')
 
     def test_04_connect_to_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
-            self.db.connect()
+            self.db_postgres.connect()
             self.assertEqual(fake_out.getvalue(), f'Connect to DB: {self.db_name}\n')
 
     def test_05_close_to_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
-            self.db.close()
+            self.db_postgres.close()
             self.assertEqual(fake_out.getvalue(), f'Close connect to DB: {self.db_name}\n')
 
     def test_06_read_to_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
-            self.db.read(self.table)
+            self.db_postgres.read(self.table)
             self.assertEqual(
                 fake_out.getvalue(),
                 f'Read data from database: {self.db_name} from table: {self.table}\n')
 
     def test_07_write_to_DataBase(self):
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
-            self.db.write(self.table, self.data)
+            self.db_postgres.write(self.table, self.data)
             self.assertEqual(
                 fake_out.getvalue(),
                 f'Write {self.data} to DB: {self.db_name} table: {self.table}\n')
 
-    def test_08_correct_instance_data(self):
-        self.assertEqual(self.db_name, self.db.db_name)
-        self.assertEqual(self.user, self.db.user)
-        self.assertEqual(self.password, self.db.password)
-        self.assertEqual(self.host, self.db.host)
-        self.assertEqual(self.port, self.db.port)
+    def test_08_correct__init__data(self):
+        self.assertEqual(self.db_name, self.db_postgres.db_name)
+        self.assertEqual(self.user, self.db_postgres.user)
+        self.assertEqual(self.password, self.db_postgres.password)
+        self.assertEqual(self.host, self.db_postgres.host)
+        self.assertEqual(self.port, self.db_postgres.port)
 
     def test_09_set_db_name(self):
         db_name = 'mysql'
-        self.db.db_name = db_name
-        self.assertEqual(db_name, self.db.db_name)
+        self.db_postgres.db_name = db_name
+        self.assertEqual(db_name, self.db_postgres.db_name)
 
     def test_10_set_user(self):
         user = 'user'
-        self.db.user = user
-        self.assertEqual(user, self.db.user)
+        self.db_postgres.user = user
+        self.assertEqual(user, self.db_postgres.user)
 
     def test_11_set_password(self):
         password = 'QWE123!ww'
-        self.db.password = password
-        self.assertEqual(password, self.db.password)
+        self.db_postgres.password = password
+        self.assertEqual(password, self.db_postgres.password)
 
     def test_12_set_host(self):
-        host = '127.0.0.1'
-        self.db.host = host
-        self.assertEqual(host, self.db.host)
+        host = '8.8.8.8'
+        self.db_postgres.host = host
+        self.assertEqual(host, self.db_postgres.host)
 
     def test_13_set_port(self):
         port = '2222'
-        self.db.port = port
-        self.assertEqual(port, self.db.port)
+        self.db_postgres.port = port
+        self.assertEqual(port, self.db_postgres.port)
 
     """Negative tastes"""
 
-    def test_14_incorrect_db_name_type(self):
-        wrong_type = 100
+    def test_14_incorrect_wrong_types(self):
+        data = DataBaseDTO(None, None, None, None, None)
         with self.assertRaises(TypeError) as context:
-            self.db.db_name = wrong_type
-        self.assertEqual(str(context.exception), f'{wrong_type} must be a string')
+            self.db_postgres = DataBase(data)
+        self.assertEqual(str(context.exception), f'None must be a string')
 
     def test_15_incorrect_db_name_empty_field(self):
         wrong_value = ''
         with self.assertRaises(ValueError) as context:
-            self.db.db_name = wrong_value
+            self.db_postgres.db_name = wrong_value
         self.assertEqual(str(context.exception), 'Empty string in values')
 
     def test_16_incorrect_db_name(self):
-        wrong_value = 'qwqwqwqwqwqw'
+        wrong_value = 'oracle'
         with self.assertRaises(DataBaseException) as context:
-            self.db.db_name = wrong_value
+            self.db_postgres.db_name = wrong_value
         self.assertEqual(str(context.exception), f'Unsupported DB: {wrong_value}. Use these names: {self.databases}')
 
     def test_17_incorrect_user(self):
-        wrong_value = 'root'
+        root = 'root'
         with self.assertWarns(Warning) as context:
-            self.db.user = wrong_value
+            self.db_postgres.user = root
         the_warning = context.warning
         self.assertEqual(str(the_warning), 'Use root user is dangerous')
 
@@ -152,16 +161,25 @@ class TestDatabase(unittest.TestCase):
 
         for case in CASES:
             with self.assertRaises(DataBaseException) as context:
-                self.db.password = case.wrong_password
-                self.assertEqual(str(context.exception), case.actual)
+                self.db_postgres.password = case.wrong_password
+            self.assertEqual(str(context.exception), case.actual)
 
     def test_19_incorrect_host(self):
-        wrong_host = '127.0.0'
+        wrong_host = '10.3.10.270'
         with self.assertRaises(Exception) as context:
-            self.db.host = wrong_host
+            self.db_postgres.host = wrong_host
         self.assertEqual(str(context.exception), f"'{wrong_host}' does not appear to be an IPv4 or IPv6 address")
 
-    def test_20_incorrect_port(self):
+    def test_20_host_with_unreachable_host(self):
+        unreachable_host = '192.168.0.99'
+        with self.assertRaises(Exception) as error_context:
+            self.db_postgres.host = unreachable_host
+        self.assertEqual(
+            f'{unreachable_host} is not avaliable',
+            str(error_context.exception)
+        )
+
+    def test_21_incorrect_port(self):
         Case = namedtuple('Case', 'wrong_port actual')
 
         CASES = (
@@ -174,9 +192,18 @@ class TestDatabase(unittest.TestCase):
 
         for case in CASES:
             with self.assertRaises(DataBaseException) as context:
-                self.db.port = case.wrong_port
-                self.assertEqual(str(context.exception), case.actual)
+                self.db_postgres.port = case.wrong_port
+            self.assertEqual(str(context.exception), case.actual)
 
+    def test_22_DataBase_context_manager(self):
+        with patch('sys.stdout', new=io.StringIO()) as fake_out:
+            with DataBase(self.database_dto) as db:
+                db.write(self.table, self.data)
+        self.assertEqual(
+            fake_out.getvalue(), f'Connect to DB: {db.db_name}\n'
+                                 f'Write {self.data} to DB: {db.db_name} table: {self.table}\n'
+                                 f'Close connect to DB: {db.db_name}\n'
+        )
 
 if __name__ == '__main__':
     unittest.main()
