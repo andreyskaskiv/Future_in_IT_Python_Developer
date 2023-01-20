@@ -16,7 +16,7 @@ class TestDatabase(unittest.TestCase):
         self.port = '5001'
         self.table = 'customers'
         self.data = 'some data'
-        self.databases = ('postgres', 'mysql', 'sqlite')
+
 
         self.database_dto = DataBaseDTO(
             self.db_name,
@@ -131,7 +131,8 @@ class TestDatabase(unittest.TestCase):
         wrong_value = 'oracle'
         with self.assertRaises(DataBaseException) as context:
             self.db_postgres.db_name = wrong_value
-        self.assertEqual(str(context.exception), f'Unsupported DB: {wrong_value}. Use these names: {self.databases}')
+        self.assertEqual(str(context.exception),
+                         f'Unsupported DB: {wrong_value}. Use these names: {self.db_postgres.databases}')
 
     def test_17_incorrect_user(self):
         root = 'root'
