@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{{ super() }}
+
+<div id="reg_form">
+    <h1>Registration form</h1>
+
+    <form action="/home.html" method="post" class="form-contact">
+        <input type="hidden" name="id" value="123456">
+        <ul class="reg_list">
+            <li>
+                <div class="reg_title">Name: </div>
+                <input class="reg_input" type="text" name="fio" value="">
+            </li>
+            <li>
+                <div class="reg_title">Gender:</div>
+                <input type="radio" name="sex" value="1" checked> M
+                <input type="radio" name="sex" value="2"> W
+            </li>
+            <li>
+                <div class="reg_title">City:</div>
+                <select class="reg_select" name="city">
+                    <option value="1">Kharkiv</option>
+                    <option value="2">Kyiv</option>
+                    <option value="3">Lviv</option>
+                    <option value="4">Odessa</option>
+                </select>
+            </li>
+            <li>
+                <div class="reg_title">Password:</div>
+                <input class="reg_input" type="password" name="pass" value="">
+            </li>
+            <li>
+                <textarea name="descr" cols="40" rows="5" placeholder="Write something about yourself"></textarea>
+            </li>
+            <li>
+                <input type="checkbox" name="agree">
+                <span class="reg_argee">You agree to everything</span>
+            </li>
+        </ul>
+        <div id="reg_control">
+            <div style="float: left;"><input class="reg_button" type="submit" value="Register"></div>
+            <div style="float: right;"><input class="reg_button" type="reset" value="Clear form"></div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
+
+
+<!--<form action="/register" method="post" class="form-contact">-->
+<!--    <p><label>Имя: </label> <input type="text" name="name" value="" required/>-->
+<!--    <p><label>Email: </label> <input type="text" name="email" value="" required/>-->
+<!--    <p><label>Пароль: </label> <input type="password" name="psw" value="" required/>-->
+<!--    <p><label>Повтор пароля: </label> <input type="password" name="psw2" value="" required/>-->
+<!--    <p><input type="submit" value="Регистрация"/>-->
+<!--</form>-->
