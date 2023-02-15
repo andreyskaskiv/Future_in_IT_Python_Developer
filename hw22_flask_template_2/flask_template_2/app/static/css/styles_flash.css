@@ -1,0 +1,25 @@
+/* --- Login Form invalid message -- */
+.form-contact .invalid {
+	display: inline-block;
+	background: #FF9898;
+}
+.form-contact .invalid-feedback {
+	color: #CC0000;
+}
+
+/* --- flash message -- */
+.flash {padding: 10px;}
+.flash.success {
+	border: 1px solid #21DB56;
+	background: #AEFFC5;
+    text-align: center;
+    font-size: 18px; /* размер шрифта */
+    font-weight: bold; /* жирный шрифт */
+}
+.flash.error {
+	border: 1px solid #FF4343;
+	background: #FF9C9C;
+    text-align: center;
+    font-size: 18px; /* размер шрифта */
+    font-weight: bold; /* жирный шрифт */
+}

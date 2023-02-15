@@ -1,0 +1,46 @@
+<nav class="navbar-wrapper navbar-inverse navbar-fixed-top">
+    <div class="container-fluid" >
+        <!-- Brand and toggle button get grouped with a navbar-header class for better mobile display -->
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">Weather</a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div><!--end of navbar-header -->
+
+        <!-- Collect elements for toggling -->
+        <div class="collapse navbar-collapse navHeaderCollapse">
+            <!-- Left NavBar -------------------------- -->
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/"><span id="home_menu_icon_color" class="glyphicon glyphicon-home"></span> Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span id="training_menu_icon_color" class="glyphicon glyphicon-blackboard"></span> Training<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Dreamweaver</a></li>
+                        <li><a href="#">Photoshop</a></li>
+                        <li><a href="#">Illustrator</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">jQuery</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><span id="services_menu_icon_color" class="glyphicon glyphicon-wrench"></span> Services</a></li>
+                <li><a href="#"><span id="contact_us_menu_icon_color" class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
+            </ul>
+
+            <!-- Right NavBar ------------------------- -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('auth.register') }}"><span id="sign_up_menu_icon_color" class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{{ url_for('auth.login') }}"><span id="login_menu_icon_color" class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+
+        </div>
+    </div>
+    </div>
+</nav>

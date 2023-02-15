@@ -1,0 +1,96 @@
+/* --- --- --- --- --- --- --- --- */
+/* --- Login Form --- */
+#login_form,  #reg_form{
+    width: 450px;
+    margin: 50px auto 0 auto;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: 10px 10px 20px #aaa; /* тень от формы */
+    border-radius: 15px;
+}
+
+.form-contact label {
+	display: inline-block; /* тег отображать как блоковый, но разрешаем отображение других элементов */
+	min-width: 130px; /* минимальная ширина блока */
+    font-size: 18px; /* размер шрифта */
+    font-weight: bold; /* жирный шрифт */
+}
+.form-contact p {
+    margin: 10px 0 10px 0;
+}
+
+.form-contact .log_reg_input {
+    width: 250px;
+    height: 30px;
+    border: none; /*  инпут без рамки */
+    border-bottom: 1px solid #aaa;
+    font-size: 18px;
+}
+
+.form-contact .log_reg_input:focus {  /*  инпут в фокусе */
+    background: rgba(255, 176, 0, 0.2);
+    border-bottom: 1px solid #39b54a;
+}
+
+.form-contact input[type=submit], textarea, .registration {
+    font-size: 16px; /* размер шрифта */
+    font-weight: bold; /* жирный шрифт */
+}
+
+#login_control {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+
+/* --- --- --- --- --- --- --- --- */
+/* --- Registration Form --- */
+/*#reg_form {*/
+/*    width: 650px;*/
+/*    margin: 50px auto 0 auto;*/
+/*    padding: 10px;*/
+/*    background: #fff;*/
+/*    box-shadow: 10px 10px 20px #aaa;*/
+/*    border-radius: 15px;*/
+/*}*/
+
+
+
+/* --- --- --- --- --- --- --- --- */
+/* --- profile --- */
+.profile-table {
+    width: 450px;
+    margin: 50px auto 0 auto;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 10px 10px 20px #aaa; /* тень от формы */
+    border-radius: 15px;
+}
+
+.profile-load {
+	margin-top: 10px;
+	overflow: hidden;
+	max-width: 500px;
+}
+
+.profile-load input[type=submit], input[type=file] {
+	width: 100%;
+	font-size: 14px;
+}
+
+.profile-load p {
+	padding: 0;
+	margin: 5px 0 0 0;
+}
+
+.profile-panel {padding: 0 0 0 10px;}
+
+ul.profile-info {
+	list-style: none;
+	margin: 10px auto 0 0;
+	padding: 0;
+	color: #7E652F;
+}
+
+ul.profile-info li {margin-top: 10px;}
+

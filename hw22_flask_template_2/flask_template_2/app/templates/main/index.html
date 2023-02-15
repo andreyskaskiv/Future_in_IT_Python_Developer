@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block page_content %}
+
+    <ul>
+        {% if list %}
+        {% for user in list %}
+        <li>
+            <p>id: {{ user.id }}, email: {{ user.email }}</p>
+
+            <ul>
+                <li>Name: {{ user.profile.name}}</li>
+                <li>Age: {{ user.profile.old }}</li>
+                <li>City: {{ user.profile.city }}</li>
+            </ul>
+
+        </li>
+        {% endfor %}
+          {% endif %}
+    </ul>
+
+
+{% endblock page_content %}

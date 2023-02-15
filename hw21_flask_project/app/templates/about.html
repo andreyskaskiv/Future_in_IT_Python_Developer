@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+{{ super() }}
+
+<h1>Hi.....</h1>
+
+    <div id="rightbar">
+
+        <ul>
+            {% for user in list %}
+                <li>
+                    <p>id: {{ user.id }}, email: {{ user.email }}</p>
+
+                    <ul>
+                        <li>Name: {{ user.profile.name}}</li>
+                        <li>Age: {{ user.profile.old }}</li>
+                        <li>City: {{ user.profile.city }}</li>
+                    </ul>
+
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock %}
