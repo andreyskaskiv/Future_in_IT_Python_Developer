@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block page_content %}
+
+    <h3 class="mb-3">Posts by {{ user.username }} ({{ posts.count() }})</h3>
+    {{ pagination.links }}
+    {% for post in posts %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img pull-left"
+                 src="{{ post.author.profile.avatar }}">
+
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="{{ url_for('posts.user_posts', username=post.author.username) }}">
+                        {{ post.author.username }},
+                        last visit: {{ post.author.last_visit.strftime('%Y-%m-%d %H:%M:%S') }}
+                    </a>
+                    <small class="text-muted pull-right">
+                        Date post: {{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}
+                    </small>
+                </div>
+
+                <h3>
+                    <a class="article-title" href="{{ url_for('posts.show_post', post_id=post.id) }}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+
+                <p class="article-content">{{ post.content }}</p>
+            </div>
+
+        </article>
+    {% endfor %}
+    {{ pagination.info }} {{ pagination.links }}
+
+{% endblock page_content %}
